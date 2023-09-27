@@ -1,0 +1,12 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Crash Cases",
+  "width": 800,
+  "height": 400,
+  "projection": {"type": "gnomonic"},
+  "data": {
+    "url": "js/STE11aAust.json",
+    "format": {"type": "topojson", "feature": "STE11aAust"}
+  },
+  "mark": {"type": "geoshape"}
+}
