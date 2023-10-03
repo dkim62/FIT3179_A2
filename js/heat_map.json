@@ -1,0 +1,20 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Crash Case Reported in Australia",
+  "width" : 800,
+  "height" : 500,
+  "padding" : 10,
+  "data": { "url": "Data/Crash_Data.csv"},
+  "layer" : [
+    {
+      "mark" : "circle",
+      "encoding" : {
+        "x" : {"field" : "Time", "type" : "ordinal"}, 
+        "y" : {"field" : "Month", "type" : "ordinal", "timeUnit" : "month"},
+        "size" : {
+          "aggregate" : "count"
+        }   
+      }
+    }          
+  ]
+}
