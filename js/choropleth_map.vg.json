@@ -21,14 +21,15 @@
             "bind": {
                 "input": "select",
                 "options": [
-                    [144, -96],
+                    [135, -27],
+                    [144.9, -37],
                     [132, -19.5],
                     [136, -30],
                     [117, -25],
                     [142,-20.9  ],
                     [145,-31.8]
                 ],
-                "labels": ["Victoria", "Northern Territory", "South Australia", "Western Australia","Queensland", "New South Wales"],
+                "labels": ["Centre View", "Victoria", "Northern Territory", "South Australia", "Western Australia","Queensland", "New South Wales"],
                 "name": "Map Centre: "
             }
         },
