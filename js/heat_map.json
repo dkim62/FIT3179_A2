@@ -4,14 +4,24 @@
   "width" : 800,
   "height" : 500,
   "padding" : 10,
+  "params": [
+    {
+      "name": "Year_selection",
+      "value": 2021,
+      "bind": {"input": "range", "min": 2017, "max": 2021, "step": 1}
+   }
+  ],
   "data": { "url": "Data/Crash_Data.csv"},
+  "transform": [
+    {"filter" : "datum.Year == Year_selection"}
+  ],
   "layer" : [
     {
-      "mark" : "circle",
+      "mark" : "rect",
       "encoding" : {
         "x" : {"field" : "Time", "type" : "ordinal"}, 
         "y" : {"field" : "Month", "type" : "ordinal", "timeUnit" : "month"},
-        "size" : {
+        "color" : {
           "aggregate" : "count"
         }   
       }
