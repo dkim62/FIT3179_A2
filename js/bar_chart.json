@@ -3,9 +3,9 @@
     "description": "A population pyramid for the US in 2000, created using stack. See https://vega.github.io/vega-lite/examples/concat_population_pyramid.html for a variant of this created using concat.",
     "data": { "url": "https://raw.githubusercontent.com/dkim62/FIT3179_A2/main/Data/Crash_Data.csv"},
     "transform": [
-      {"filter": "datum.year == 2000"},
+      {"filter": "datum.Year == 2017"},
       {"calculate": "datum.Gender == 'Female' ? 'Female' : 'Male'", "as": "gender"},
-      {"calculate": "datum.Gender == 'Female' ? -datum.case : datum.case", "as": "signed_people"}
+      {"calculate": "datum.Gender == 'Female' ? -datum.Case : datum.Case", "as": "signed_people"}
     ],
     "width": 600,
     "height": 400,
@@ -18,11 +18,10 @@
       "x": {
         "aggregate" : "sum",
         "field": "signed_people",
-        "title": "population",
-        "axis": {"format": "s"}
+        "axis": {"format": "s"} 
       },
       "color": {
-        "field": "gender",
+        "field": "Gender",
         "scale": {"range": ["#675193", "#ca8861"]},
         "legend": {"orient": "top", "title": null}
       }
