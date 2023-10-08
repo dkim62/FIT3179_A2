@@ -7,7 +7,7 @@
       {"calculate": "datum.Gender == 'Female' ? 'Female' : 'Male'", "as": "gender"},
       {"calculate": "datum.Gender == 'Female' ? -datum.Case : datum.Case", "as": "signed_people"}
     ],
-    "width": 600,
+    "width": 200,
     "height": 400,
     "mark": "bar",
     "encoding": {

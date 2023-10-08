@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": "Crash Case Reported in Australia",
-  "width" : 800,
-  "height" : 500,
+  "width" : 1500,
+  "height" : 450,
   "padding" : 10,
   "params": [
     {
@@ -23,7 +23,7 @@
       }
     }
   ],
-  "data": { "url": "Data/Crash_Data.csv"},
+  "data": { "url": "https://raw.githubusercontent.com/dkim62/FIT3179_A2/main/Data/Crash_Data.csv"},
   "transform": [
     {"filter" : "datum.State == State_selection"}
   ],

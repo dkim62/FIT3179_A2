@@ -1,15 +1,15 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Median house price per suburb (2010-2020)",
-    "width": 800,
+    "title": "Australia Incident Rate 2017-2021",
+    "width": 500,
     "height": 500,
     "params": [
         {
             "name": "zoom_level",
-            "value": 900,
+            "value": 700,
             "bind": {
                 "input": "range",
-                "min": 900, 
+                "min": 700, 
                 "max": 2000,
                 "step": 100,
                 "name": "Zoom: "
@@ -61,10 +61,10 @@
               "as" : "map"
             }
           ],
-          "mark": {"type": "geoshape", "fill" : "lightgray"},
+          "mark": {"type": "geoshape", "fill" : "#9CA625"},
           "encoding": {
             "tooltip": [
-              {"field": "properties.LGA_NAME17", "type": "nominal"}   
+              {"field": "properties.LGA_NAME17", "type": "nominal", "title" : "National LGA Name"}   
             ]
           }
         },{
@@ -83,11 +83,13 @@
                     },
                     "as" : "geo"
                 },
-                {"filter" : "datum.Year == Year_selection"}
+                {"joinaggregate" : [{"op" : "count", "field": "National LGA Name 2017", "as" : "total"}],"groupby": ["National LGA Name 2017"]},    
+                {"filter" : "datum.Year == Year_selection"},
+                {"joinaggregate" : [{"op" : "count", "field": "National LGA Name 2017", "as" : "incidents"}],"groupby": ["National LGA Name 2017"]},
+                {"calculate": "(datum.incidents - (datum.total/5))/(datum.total ) * 100", "as" : "rate"}
             ],
             "mark": {
-                "type": "geoshape",
-                "stroke": "white"
+                "type": "geoshape"
             },
             "encoding": {
                 "shape" : {
@@ -95,13 +97,14 @@
                     "type" : "geojson"
                 },
                 "color" : {
-                    "aggregate" : "count",
-                    "field" : "National LGA Name 2017",
+                    "field" : "rate",
                     "type" : "quantitative",
-                    "title" : "count"
+                    "title" : "Incident rate (%)",
+                    "scale" : {"domain" : [-100, 100], "range" : ["#104210", "#6A8820", "#D3C02F", "#F2E437"]}
                 },
                 "tooltip": [
-                    { "field": "National LGA Name 2017", "type" : "nominal" }
+                    { "field": "National LGA Name 2017", "type" : "nominal", "title" : "National LGA Name" },
+                    { "field": "rate", "type" : "quantitative", "format" : ".2f" }
             ]
             }
         }
