@@ -1,0 +1,16 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "repeat": ["Crash Type", "Road User", "Age_Group", "Day of week"],
+    "columns": 2,
+    "spec": {
+        "data": {"url": "https://raw.githubusercontent.com/dkim62/FIT3179_A2/main/Data/Crash_Data.csv"},
+        "width" : 200,
+        "height" : 200,
+        "mark": "bar",
+        "encoding": {
+            "x": {"field": {"repeat" :"repeat"}},
+            "y": {"aggregate": "count"},
+            "color": {"field": "State"}
+        }
+    }
+}

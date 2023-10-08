@@ -11,31 +11,113 @@
 
   <!-- CSS file -->
   <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
+
+  <style>
+    body {
+      background-image: url("images/title.jpg");
+      background-size : cover;
+      margin : 15px;
+    }
+
+    .background {
+      display : grid;
+      grid-gap: 20px;
+      margin : auto;
+      padding : 20px;
+      width : 70%;
+      background-color: lightgoldenrodyellow;
+      border-radius : 15px;
+    }
+
+    .header {
+      margin : auto;
+      text-align : center;
+      width : 95%;
+      background-color: white;
+      border-radius : 15px;
+      font-size:30px;
+      color:black;
+    }
+
+    .bar {
+      background-color: white;
+      border-radius : 15px;
+      margin : auto;
+      text-align: center;
+      width : 95%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 20px;
+      line-height : 50px;
+    }
+
+    #bar_chart_anno1 {
+      height : 500px;
+      width : 45%;
+    }
+
+    #bar_chart1 {
+      height : 500px;
+      width : 45%;
+    }
+
+    #bar_chart_anno2 {
+      height : 500px;
+      width : 45%;
+    }
+
+    #bar_chart2 {
+      height : 500px;
+      width : 45%;
+    }
+
+    .heat_map {
+      top : 15px;
+      background-color: white;
+      margin : auto;
+      align-items : center;
+      text-align: center;
+      width : 95%;
+      border-radius : 15px;
+    }
+
+    #heat_map_anno {
+      margin-top : 5px;
+      align-items : center;
+      text-align: center;
+      width : 95%;
+    }
+
+  </style>
 </head>
 <body>
-  <div class="pure-g">
-    <div class="pure-u-1">
+  <div class="background">
+    <div class="header">
       <div id="title">
-        <h1>"Australia Road Accident</h1>
+        <h1>Australia Road Accident</h1>
+        <p1>blah blah<br>blah blah</p1>
       </div>
     </div>  
-    <div class="pure-u-1-3">
-     
-    </div>
-    <div class="pure-u-1-3">
 
+    <div class="bar">
+      <div id="bar_chart_anno1"><p1>asdfasf</p1></div>
+      <div id="bar_chart1"></div>
+      <div id="bar_chart2"></div>
+      <div id="bar_chart_anno2"><p1>asdfasf</p1></div>
     </div>
-    <div class="pure-u-1-3">
+
+    <div class="map">
+      this is where the map goes
       <!-- <div id="choropleth_map"></div> -->
     </div>
-    <div class="pure-u-1">
+
+    <div class="heat_map">
+      <div id="heat_map_anno">
+        <p1>annotation for heat map</p1>
+      </div>
       <div id="heat_map"></div>
     </div>
-    <div class="pure-u-1-3">
-      <div id="bar_chart"></div>
-    </div>
   </div>
-
 
 <script type="text/javascript">
 
@@ -49,8 +131,13 @@ var spec2 = "js/choropleth_map.vg.json";
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
   }).catch(console.error);
 
-var spec3 = "js/bar_chart.json";
-  vegaEmbed('#bar_chart', spec3).then(function(result) {
+var spec3 = "js/diverging_bar_chart.json";
+  vegaEmbed('#bar_chart2', spec3).then(function(result) {
+   // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+}).catch(console.error);  
+
+var spec4 = "js/multiple_bar_chart.json";
+  vegaEmbed('#bar_chart1', spec4).then(function(result) {
    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
 }).catch(console.error);  
 </script>

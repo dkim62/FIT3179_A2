@@ -1,9 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": "Crash Case Reported in Australia",
-  "width" : 1500,
+  "width" : 800,
   "height" : 450,
-  "padding" : 10,
   "params": [
     {
       "name": "State_selection",
