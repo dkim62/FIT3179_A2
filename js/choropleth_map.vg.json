@@ -1,6 +1,7 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Australia Incident Rate 2017-2021",
+    "title" : { "text" : "Where does Accident Happen?", "align" : "center", "fontSize" : 30, "fontWeight" : "bold","offset" : 20},
+    "background" : "rgb(240,240,240)",
     "width": 500,
     "height": 500,
     "params": [
@@ -61,7 +62,7 @@
               "as" : "map"
             }
           ],
-          "mark": {"type": "geoshape", "fill" : "#9CA625"},
+          "mark": {"type": "geoshape", "fill" : "white"},
           "encoding": {
             "tooltip": [
               {"field": "properties.LGA_NAME17", "type": "nominal", "title" : "National LGA Name"}   
@@ -100,7 +101,7 @@
                     "field" : "rate",
                     "type" : "quantitative",
                     "title" : "Incident rate (%)",
-                    "scale" : {"domain" : [-100, 100], "range" : ["#104210", "#6A8820", "#D3C02F", "#F2E437"]}
+                    "scale" : {"domain" : [-100, 100], "scheme" : "redblue"}
                 },
                 "tooltip": [
                     { "field": "National LGA Name 2017", "type" : "nominal", "title" : "National LGA Name" },

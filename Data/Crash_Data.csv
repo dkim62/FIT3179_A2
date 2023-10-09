@@ -581,7 +581,6 @@ Crash ID,State,Month,Year,Dayweek,Time,Crash Type,Bus Involvement,Heavy Rigid Tr
 20211105,NSW,2,2021,Saturday,9:00,Single,No,No,No,60,Passenger,Male,12,Major Cities of Australia,Central Coast,No,No,0_to_16,Weekend,Day,1
 20213145,Qld,2,2021,Sunday,16:00,Single,No,No,No,60,Passenger,Male,33,Major Cities of Australia,Gold Coast (C),No,No,26_to_39,Weekend,Day,1
 20213105,Qld,2,2021,Saturday,8:00,Multiple,No,No,Yes,60,Driver,Female,35,Major Cities of Australia,Ipswich (C),No,No,26_to_39,Weekend,Day,1
-20213126,Qld,2,2021,Monday,16:00,Single,No,No,No,100,Passenger,,29,Outer Regional Australia,Mareeba (S),No,No,26_to_39,Weekday,Day,1
 20211047,NSW,2,2021,Sunday,2:00,Single,No,No,No,100,Driver,Male,16,Inner Regional Australia,Eurobodalla,No,No,0_to_16,Weekend,Night,1
 20211056,NSW,2,2021,Tuesday,17:00,Multiple,No,No,Yes,100,Passenger,Male,27,Outer Regional Australia,Weddin,No,No,26_to_39,Weekday,Day,1
 20212052,Vic,2,2021,Wednesday,6:00,Multiple,No,No,No,80,Motorcycle rider,Male,30,Major Cities of Australia,Hume (C),No,No,26_to_39,Weekday,Day,1
@@ -3332,8 +3331,6 @@ Crash ID,State,Month,Year,Dayweek,Time,Crash Type,Bus Involvement,Heavy Rigid Tr
 20181163,NSW,7,2018,Tuesday,13:00,Single,No,No,No,50,Driver,Female,89,Major Cities of Australia,Sutherland,No,No,75_or_older,Weekday,Day,1
 20184022,SA,7,2018,Monday,16:00,Multiple,No,No,No,60,Driver,Male,81,Major Cities of Australia,Charles Sturt (C),No,No,75_or_older,Weekday,Day,1
 20182003,Vic,7,2018,Friday,9:00,Multiple,No,No,No,80,Driver,Male,71,Inner Regional Australia,Hepburn (S),No,No,65_to_74,Weekday,Day,1
-20181182,NSW,7,2018,Sunday,0:00,Multiple,No,No,No,70,Pedestrian,Male,26,Major Cities of Australia,Central Coast,No,No,26_to_39,Weekend,Night,1
-20183136,Qld,7,2018,Friday,15:00,Single,No,Yes,No,100,Passenger,,0,Inner Regional Australia,Lockyer Valley (R),No,No,0_to_16,Weekday,Day,1
 20181115,NSW,7,2018,Wednesday,12:00,Single,No,No,No,100,Motorcycle rider,Male,24,Outer Regional Australia,Gunnedah,No,No,17_to_25,Weekday,Day,1
 20181147,NSW,7,2018,Tuesday,16:00,Multiple,No,Yes,No,110,Passenger,Male,19,Major Cities of Australia,Central Coast,No,No,17_to_25,Weekday,Day,1
 20181003,NSW,7,2018,Monday,16:00,Multiple,No,No,No,90,Driver,Male,23,Inner Regional Australia,Port Stephens,No,No,17_to_25,Weekday,Day,1
