@@ -1,6 +1,5 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title" : { "text" : "Where does Accident Happen?", "align" : "center", "fontSize" : 30, "fontWeight" : "bold","offset" : 20},
     "background" : "rgb(240,240,240)",
     "width": 500,
     "height": 500,
@@ -43,7 +42,7 @@
     "projection": {
         "type": "equirectangular",
         "center": { "expr": "center_to" },
-        "scale": { "expr": "zoom_level" }
+        "scale": { "expr": "zoom_level"}
     },
     "layer" : [ {
         "data": {
@@ -60,12 +59,14 @@
                 "key": "National LGA Name 2017"
               },
               "as" : "map"
-            }
+            },
+            {"calculate": "0", "as" : "rate"}
           ],
-          "mark": {"type": "geoshape", "fill" : "white"},
+          "mark": {"type": "geoshape", "fill" : "white", "stroke" : "rgb(240,240,240)"},
           "encoding": {
             "tooltip": [
-              {"field": "properties.LGA_NAME17", "type": "nominal", "title" : "National LGA Name"}   
+              {"field": "properties.LGA_NAME17", "type": "nominal", "title" : "National LGA Name"},
+              { "field": "rate", "type" : "quantitative", "format" : ".2f" }   
             ]
           }
         },{
@@ -84,10 +85,10 @@
                     },
                     "as" : "geo"
                 },
-                {"joinaggregate" : [{"op" : "count", "field": "National LGA Name 2017", "as" : "total"}],"groupby": ["National LGA Name 2017"]},    
+                {"joinaggregate" : [{"op" : "count", "field": "National LGA Name 2017", "as" : "total"}],"groupby": ["Year"]},    
                 {"filter" : "datum.Year == Year_selection"},
                 {"joinaggregate" : [{"op" : "count", "field": "National LGA Name 2017", "as" : "incidents"}],"groupby": ["National LGA Name 2017"]},
-                {"calculate": "(datum.incidents - (datum.total/5))/(datum.total ) * 100", "as" : "rate"}
+                {"calculate": "datum.incidents/datum.total*100", "as" : "rate"}
             ],
             "mark": {
                 "type": "geoshape"
@@ -101,7 +102,8 @@
                     "field" : "rate",
                     "type" : "quantitative",
                     "title" : "Incident rate (%)",
-                    "scale" : {"domain" : [-100, 100], "scheme" : "redblue"}
+                    "scale" : {"domain" : [0, 2], "range" : ["rgb(255,255,255)","rgb(189,194,208)","rgb(84,98,135)","rgb(38,56,104)"]},
+                    "legend" : {"orient" : "bottom", "offset" : -100}
                 },
                 "tooltip": [
                     { "field": "National LGA Name 2017", "type" : "nominal", "title" : "National LGA Name" },

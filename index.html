@@ -26,7 +26,7 @@
       margin : auto;
       padding : 20px;
       width : 65%;
-      background-color: white;
+      background-color: rgb(186,197,216);
       border-radius : 15px;
     }
 
@@ -34,16 +34,21 @@
       margin : auto;
       text-align : center;
       width : 95%;
-      background-color: rgb(240,240,240);
+      background-image: linear-gradient(white, rgb(230,230,230));
       border-radius : 15px;
       font-size:30px;
       color:black;
     }
 
     #accident_img{
-      width : 440px;
-      height : 250px;
-      align-self: center;
+      margin-top : 20px;
+      margin-bottom : 20px;
+      text-align: center;
+    }
+
+    #accident_img >img{
+      width : 400px;
+      height : 200px;
     }
 
     h2 {
@@ -54,49 +59,41 @@
       background-color: rgb(240,240,240);
       border-radius : 15px;
       margin : auto;
-      text-align: center;
       width : 95%;
       display: flex;
       grid-gap: 20px;
-      line-height : 50px;
       height : 700px;
     }
 
     #line_chart_anno {
-      text-align : left;
-      height : 500px;
       width : 45%;
       margin-left : 20px
     }
 
     #line_chart {
-      height : 500px;
       width : 45%;
       margin-top : 30px;
+      margin-left : 30px;
     }
 
     .bar {
       background-color: rgb(240,240,240);
       border-radius : 15px;
       margin : auto;
-      text-align: center;
       width : 95%;
       display: flex;
       grid-gap: 20px;
-      line-height : 50px;
-      height : 800px;
+      height : 700px;
     }
 
     #bar_chart_anno {
-      text-align : right;
-      height : 500px;
       width : 45%;
+      margin-left : 30px;
     }
 
     #bar_chart {
-      height : 500px;
       width : 45%;
-      margin-top : 40px;
+      margin-top : 30px;
       margin-left : 20px
     }
 
@@ -104,40 +101,42 @@
       background-color: rgb(240,240,240);
       border-radius : 15px;
       margin : auto;
-      text-align: center;
       width : 95%;
       display: flex;
       grid-gap: 20px;
-      line-height : 50px;
-      height : 700px;
     }
 
     #map_anno {
-      text-align : center;
-      height : 500px;
       width : 45%;
+      margin-top : 30px;
+      margin-left : 20px;
+      margin-bottom : 30px;
     }
 
     #choropleth_map {
-      height : 500px;
+      margin-top : 30px;
+      margin-left : 30px;
       width : 45%;
     }
 
     .heat_map {
-      top : 15px;
       background-color: rgb(240,240,240);
       margin : auto;
-      align-items : center;
-      text-align: center;
       width : 95%;
       border-radius : 15px;
     }
 
     #heat_map_anno {
-      margin-top : 5px;
-      align-items : center;
-      text-align: center;
+      margin-top : 30px;
+      margin-left : 20px;
+      margin-bottom : 30px;
       width : 95%;
+    }
+
+    #heat_map {
+      margin-left : 20px;
+      text-align: center;
+      margin-top : 30px;
     }
 
   </style>
@@ -153,13 +152,20 @@
 
     <div class="line">
       <div id="line_chart_anno">
-        <h2>Reduction over the Decade</h2>
+        <h2>How Are We Doing?</h2>
         <p1>
           In 2021, there were 1,123 road crash deaths. This is an increase of 2.6 per cent from 2020. Over
           the decade, fatalities decreased from approximately 1,300 per year to 1,100 per year. The trend
           was not consistent but the total reduction amounted to 13.6 per cent.
         </p1>
-        <img id="accident_img" src="/images/ataglance.png">
+        <div id="accident_img">
+          <img src="/images/ataglance.png">
+        </div>
+        <p1>
+          In 2021, there were 1,123 road crash deaths. This is an increase of 2.6 per cent from 2020. Over
+          the decade, fatalities decreased from approximately 1,300 per year to 1,100 per year. The trend
+          was not consistent but the total reduction amounted to 13.6 per cent.
+        </p1>
       </div>
       <div id="line_chart"></div>     
     </div>
@@ -167,14 +173,13 @@
     <div class="bar">
       <div id="bar_chart"></div>
       <div id="bar_chart_anno">
-        <h2>At a glance</h2>
+        <h2>At A Glance</h2>
         <p1>
           vulnerable road users account for a greater share of hospitalised injuries (47 per cent) than they
           do for deaths (36 per cent), and; secondly, annual HI counts of vehicle occupants are increasing
           faster than that for vulnerable road users.
           Age specific rates per population show declines for all age groups. The two groups 17-25 years and
           ≥65 years remain well above the national average.
-
         </p1>
       </div>
     </div>
@@ -183,17 +188,26 @@
 
     <div class="map">
       <div id="map_anno">
+        <h2>Where Does Accident Happen?</h2>
         <p1>
-          annotation for map
+          Zones with a posted speed limit of ≤50 km/h account for approximately 13 per cent of all deaths.
+          Over the decade total annual deaths in these zones have declined by a total of 11 per cent. Annual
+          deaths in higher speed zones also have declined over the decade. For 60-70km/h zones
+          (74 per cent of which are 60km/h), annual deaths have also declined by a total of 11 per cent. For
+          zones 80km/h and over, annual deaths have declined by 2 per cent.
         </p1>
       </div>
-      <!-- <div id="choropleth_map"></div> -->
+      <div id="choropleth_map"></div>
     </div>
 
     <div class="heat_map">
       <div id="heat_map"></div>
       <div id="heat_map_anno">
-        <p1>annotation for heat map</p1>
+        <p1>Zones with a posted speed limit of ≤50 km/h account for approximately 13 per cent of all deaths.
+          Over the decade total annual deaths in these zones have declined by a total of 11 per cent. Annual
+          deaths in higher speed zones also have declined over the decade. For 60-70km/h zones
+          (74 per cent of which are 60km/h), annual deaths have also declined by a total of 11 per cent. For
+          zones 80km/h and over, annual deaths have declined by 2 per cent.</p1>
       </div>
     </div>
   </div>
