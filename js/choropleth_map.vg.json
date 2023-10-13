@@ -1,15 +1,16 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "background" : "rgb(240,240,240)",
-    "width": 500,
-    "height": 500,
+    "background" : "rgb(255,255,255)",
+    "title" : { "text" : "Where Does Accident Happen?", "align" : "center", "fontSize" : 30, "fontWeight" : "bold", "offset" : 20},
+    "width" : 500,
+    "height" : 350,
     "params": [
         {
             "name": "zoom_level",
-            "value": 700,
+            "value": 600,
             "bind": {
                 "input": "range",
-                "min": 700, 
+                "min": 600, 
                 "max": 2000,
                 "step": 100,
                 "name": "Zoom: "
@@ -62,7 +63,7 @@
             },
             {"calculate": "0", "as" : "rate"}
           ],
-          "mark": {"type": "geoshape", "fill" : "white", "stroke" : "rgb(240,240,240)"},
+          "mark": {"type": "geoshape", "fill" : "rgb(220,220,220)", "stroke" : "white"},
           "encoding": {
             "tooltip": [
               {"field": "properties.LGA_NAME17", "type": "nominal", "title" : "National LGA Name"},
@@ -102,8 +103,8 @@
                     "field" : "rate",
                     "type" : "quantitative",
                     "title" : "Incident rate (%)",
-                    "scale" : {"domain" : [0, 2], "range" : ["rgb(255,255,255)","rgb(189,194,208)","rgb(84,98,135)","rgb(38,56,104)"]},
-                    "legend" : {"orient" : "bottom", "offset" : -100}
+                    "scale" : {"domain" : [0, 2], "range" : ["rgb(220,220,220)","rgb(189,194,208)","rgb(84,98,135)","rgb(38,56,104)"]},
+                    "legend" : {"orient" : "bottom", "offset" : -60}
                 },
                 "tooltip": [
                     { "field": "National LGA Name 2017", "type" : "nominal", "title" : "National LGA Name" },

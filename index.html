@@ -5,212 +5,158 @@
   <script src="https://cdn.jsdelivr.net/npm/vega@5.22.1"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.5.0"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.21.0"></script>
-  
-  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css" integrity="sha384-Uu6IeWbM+gzNVXJcM9XV3SohHtmWE+3VGi496jvgX1jyvDTXfdK+rfZc8C1Aehk5" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/grids-responsive-min.css" />
 
   <!-- CSS file -->
   <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
 
   <style>
-    body {
-      background-image: url("images/title.jpg");
-      background-size : cover;
-      margin : 15px;
-      font-family: Verdana, Geneva, Tahoma, sans-serif;
+    .background {
+      padding : 20px;
+      margin : auto;
+      width : 70%;
+      height : 100%;
+      background-color : rgb(186,197,216);
     }
 
-    .background {
-      display : grid;
-      grid-gap: 20px;
+    table {
       margin : auto;
-      padding : 20px;
-      width : 65%;
-      background-color: rgb(186,197,216);
+      width : 1000px;
+      height : 1500px;
+      background-color : white;
       border-radius : 15px;
+      border-collapse: collapse; 
+    }
+
+    .wrap {
+      margin-top : 20px;
+      margin-bottom : 20px;
+    }
+    
+    td > div {
+      margin : 20px;
     }
 
     .header {
-      margin : auto;
-      text-align : center;
-      width : 95%;
-      background-image: linear-gradient(white, rgb(230,230,230));
-      border-radius : 15px;
-      font-size:30px;
-      color:black;
-    }
-
-    #accident_img{
-      margin-top : 20px;
-      margin-bottom : 20px;
+      height : 10%;
       text-align: center;
     }
 
-    #accident_img >img{
-      width : 400px;
-      height : 200px;
-    }
-
-    h2 {
-      font-size : 30px;
-    }
-
-    .line {
-      background-color: rgb(240,240,240);
+    .title-cell {
+      border-bottom: 3px black;
+      border-bottom-style : double;
       border-radius : 15px;
-      margin : auto;
-      width : 95%;
-      display: flex;
-      grid-gap: 20px;
-      height : 700px;
     }
 
-    #line_chart_anno {
-      width : 45%;
-      margin-left : 20px
+    .title {
+      font-size : 50px;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
     }
 
-    #line_chart {
-      width : 45%;
-      margin-top : 30px;
-      margin-left : 30px;
+    .upper-1 {
+      height : 15%;
+    }
+    .upper-2 {
+      height : 15%;
     }
 
-    .bar {
-      background-color: rgb(240,240,240);
-      border-radius : 15px;
-      margin : auto;
-      width : 95%;
-      display: flex;
-      grid-gap: 20px;
-      height : 700px;
+    .middle {
+      height : 40%;
     }
 
-    #bar_chart_anno {
-      width : 45%;
-      margin-left : 30px;
+    .lower {
+      height : 20%;
     }
 
-    #bar_chart {
-      width : 45%;
-      margin-top : 30px;
-      margin-left : 20px
+    .intro {
+      vertical-align: top;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
     }
-
-    .map {
-      background-color: rgb(240,240,240);
-      border-radius : 15px;
-      margin : auto;
-      width : 95%;
-      display: flex;
-      grid-gap: 20px;
-    }
-
-    #map_anno {
-      width : 45%;
-      margin-top : 30px;
-      margin-left : 20px;
-      margin-bottom : 30px;
-    }
-
-    #choropleth_map {
-      margin-top : 30px;
-      margin-left : 30px;
-      width : 45%;
+    .choropleth_map {
+      text-align: center;
     }
 
     .heat_map {
-      background-color: rgb(240,240,240);
-      margin : auto;
-      width : 95%;
-      border-radius : 15px;
-    }
-
-    #heat_map_anno {
-      margin-top : 30px;
-      margin-left : 20px;
-      margin-bottom : 30px;
-      width : 95%;
-    }
-
-    #heat_map {
-      margin-left : 20px;
       text-align: center;
-      margin-top : 30px;
     }
 
+    .line_chart {
+      text-align: center;
+    }
+
+    .bar_chart {
+      width : 80%;
+    }
+
+    .outro {
+      vertical-align: top;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
   </style>
 </head>
 <body>
-  <div class="background">
-    <div class="header">
-      <div id="title">
-        <h1>Drive Carefully!</h1>
-        <p1>Australia Fatal Road Accident Data 2017 ~ 2021<br><br></p1>
-      </div>
-    </div>  
-
-    <div class="line">
-      <div id="line_chart_anno">
-        <h2>How Are We Doing?</h2>
-        <p1>
-          In 2021, there were 1,123 road crash deaths. This is an increase of 2.6 per cent from 2020. Over
-          the decade, fatalities decreased from approximately 1,300 per year to 1,100 per year. The trend
-          was not consistent but the total reduction amounted to 13.6 per cent.
-        </p1>
-        <div id="accident_img">
-          <img src="/images/ataglance.png">
-        </div>
-        <p1>
-          In 2021, there were 1,123 road crash deaths. This is an increase of 2.6 per cent from 2020. Over
-          the decade, fatalities decreased from approximately 1,300 per year to 1,100 per year. The trend
-          was not consistent but the total reduction amounted to 13.6 per cent.
-        </p1>
-      </div>
-      <div id="line_chart"></div>     
-    </div>
-
-    <div class="bar">
-      <div id="bar_chart"></div>
-      <div id="bar_chart_anno">
-        <h2>At A Glance</h2>
-        <p1>
-          vulnerable road users account for a greater share of hospitalised injuries (47 per cent) than they
-          do for deaths (36 per cent), and; secondly, annual HI counts of vehicle occupants are increasing
-          faster than that for vulnerable road users.
-          Age specific rates per population show declines for all age groups. The two groups 17-25 years and
-          ≥65 years remain well above the national average.
-        </p1>
-      </div>
-    </div>
-
-    
-
-    <div class="map">
-      <div id="map_anno">
-        <h2>Where Does Accident Happen?</h2>
-        <p1>
-          Zones with a posted speed limit of ≤50 km/h account for approximately 13 per cent of all deaths.
-          Over the decade total annual deaths in these zones have declined by a total of 11 per cent. Annual
-          deaths in higher speed zones also have declined over the decade. For 60-70km/h zones
-          (74 per cent of which are 60km/h), annual deaths have also declined by a total of 11 per cent. For
-          zones 80km/h and over, annual deaths have declined by 2 per cent.
-        </p1>
-      </div>
-      <div id="choropleth_map"></div>
-    </div>
-
-    <div class="heat_map">
-      <div id="heat_map"></div>
-      <div id="heat_map_anno">
-        <p1>Zones with a posted speed limit of ≤50 km/h account for approximately 13 per cent of all deaths.
-          Over the decade total annual deaths in these zones have declined by a total of 11 per cent. Annual
-          deaths in higher speed zones also have declined over the decade. For 60-70km/h zones
-          (74 per cent of which are 60km/h), annual deaths have also declined by a total of 11 per cent. For
-          zones 80km/h and over, annual deaths have declined by 2 per cent.</p1>
-      </div>
+  <div class ="background">
+    <div class="wrap">
+      <table>
+        <tr class="header">
+          <td colspan="2" class="title-cell">
+            <div class="title">
+              <h1>DRIVE SAFELY</h1>
+            </div>
+          </td>
+        </tr>
+        <tr class="upper-1">
+          <td id="intro">
+            <div>
+              <h2>Australia Road Safety</h2>
+              <p1> From 2017 to 2021, although there has been a minor decrease in average number of total car accidents, 
+                there are still <b>60 to 120 accidents</b> happening <b>every month</b> in Australia. <br><br>
+                 The line chart below shows the number of reported car accidents by states and a total sum of them all 
+                 in a thick blue line. These accidents happen all across the land of Australia and a detail incident rate by 
+                 each Local Government Area (LGA) can be found on the map shown right. The incident rate is a percentage of
+                 reported case of a certain LGA to the total number of accidents happened in the same year.   
+              </p1>
+            </div>
+          </td>
+          <td rowspan="2" class="choropleth_map">
+            <div id="choropleth_map"></div>
+          </td>
+        </tr>
+        <tr class="upper-2">
+          <td class="line_chart">
+            <div id="line_chart"></div>
+          </td>
+        </tr>
+        <tr class="middle">
+          <td colspan="2" class="heat_map">
+            <div id="heat_map"></div>
+          </td>
+        </tr>
+        <tr class="lower">
+          <td class="bar_chart" colspan="2">
+            <div id="bar_chart"></div>
+          </td>
+        </tr>
+        <tr>
+          <td class="outro" colspan="2">
+            <div>
+                <p1>
+                  In summary, there has been approximately <b>4,700</b> fatal car accidents over last 5 years. The summarized bar chart above shows 
+                  classified records of these accidents by categories. <br>
+                  For crash type, single type accidents happen <b>14.8%</b> more than the multiple type. Drivers are reported to be dominantly injured 
+                  or died from the accidents by almost <b>49%</b> among all the road users. For different age group, a group of people with age of <b>40 to 64</b>
+                  are reported to be reponsible by <b>32%</b> and the accidents happen more often on <b>Friday to Sunday</b> relative to other weekdays with a peak
+                  at Saturday.<br>
+                  Lastly, a major percentage of car accidents involved male road users. <b>(76.6%)</b> However, this is an absolute number of the total accidents and does not indicate
+                  the rate. <br><br>
+                  For more information, please visit <a href="url">https://www.bitre.gov.au/sites/default/files/documents/road_trauma_2021.pdf</a>
+                </p1>
+            </div>
+          </td>
+        </tr>
+      </table>
     </div>
   </div>
+
 
 <script type="text/javascript">
 

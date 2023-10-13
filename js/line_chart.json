@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "background" : "rgb(240,240,240)",
-  "width" : 500,
-  "height" : 500,
+  "background" : "rgb(255,255,255)",
+  "width" : 400,
+  "height" : 150,
   "data": {"url": "https://raw.githubusercontent.com/dkim62/FIT3179_A2/main/Data/Crash_Data.csv"},
   "transform": [{
     "calculate": "datetime(datum.Year + '-' + datum.Month)", "as" : "date"
@@ -12,10 +12,10 @@
       "field": "date",
       "as" : "count"
     }],
-    "groupby": ["date","Road User"]
+    "groupby": ["date","State"]
   }],
   "layer" : [{
-    "mark": {"type" : "bar", "opacity": 0.5},
+    "mark": {"type" : "line", "opacity": 0.5},
     "encoding": { 
       "x": {"field": "date",
       "axis": {
@@ -25,8 +25,8 @@
       }
     },
       "y": {"aggregate": "mean", "field": "count",  "sort" : {"field" : "mean"}, "title" : "Average crashes per month"},
-      "color" : { "field" : "Road User", "scale" : {"scheme" : "purples"}, "legend" : null},
-      "tooltip" : {"field" : "Road User", "type" : "nominal"}
+      "color" : { "field" : "State", "legend" : {"orient" : "bottom"}},
+      "tooltip" : {"field" : "State", "type" : "nominal"}
     }
   },{
     "mark" : {"type" : "line", "interpolate": "natural", "strokeWidth" : 4},
