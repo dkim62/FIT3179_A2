@@ -31,6 +31,6 @@
       "scale" : {"range" : ["rgb(220,220,220)","rgb(189,194,208)","rgb(84,98,135)","rgb(38,56,104)"]},
       "legend" : {"orient" : "bottom" }
     },
-    "tooltip" : {"field" : "count", "title" : "# of case"}
+    "tooltip" : {"field" : "count", "type" : "quantitative", "title" : "# of case"}
   }
 }
