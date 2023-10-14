@@ -6,7 +6,7 @@
     background-color : rgb(186,197,216);
   }
 
-  table {
+  .layout_table {
     margin : auto;
     width : 1000px;
     height : 1500px;
